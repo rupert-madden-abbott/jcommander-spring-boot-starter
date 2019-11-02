@@ -12,13 +12,52 @@
 
   <groupId>com.madden-abbott</groupId>
   <artifactId>jcommander-spring-boot-starter</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>JCommander Spring Boot Starter</name>
+  <description>Starter for command line parsing using JCommander</description>
+  <url>https://github.com/rupert-madden-abbott/jcommander-spring-boot-starter</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Rupert Madden-Abbott</name>
+      <email>rupert@madden-abbott.com</email>
+      <url>https://github.com/rupert-madden-abbott</url>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/rupert-madden-abbott/jcommander-spring-boot-starter</url>
+    <connection>scm:git:git://github.com/rupert-madden-abbott/jcommander-spring-boot-starter.git
+    </connection>
+    <developerConnection>
+      scm:git:git@github.com:rupert-madden-abbott/jcommander-spring-boot-starter.git
+    </developerConnection>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <properties>
+    <jcommander.version>1.78</jcommander.version>
+    <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
+    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+  </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.beust</groupId>
       <artifactId>jcommander</artifactId>
-      <version>1.78</version>
+      <version>${jcommander.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -36,13 +75,64 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
-      <groupId>com.ginsberg</groupId>
-      <artifactId>junit5-system-exit</artifactId>
-      <version>1.0.0</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
-
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>${nexus-staging-maven-plugin.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
