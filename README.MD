@@ -6,7 +6,7 @@ Add this dependency to your pom.xml:
 
 ```xml
 <dependency>
-  <groupId>com.maddenabbott.jcommander</groupId>
+  <groupId>com.madden-abbott</groupId>
   <artifactId>jcommander-spring-boot-starter</artifactId>
   <version>0.1.0</version>
 </dependency>
