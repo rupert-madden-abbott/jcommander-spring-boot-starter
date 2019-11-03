@@ -8,7 +8,7 @@ Add this dependency to your pom.xml:
 <dependency>
   <groupId>com.maddenabbott.jcommander</groupId>
   <artifactId>jcommander-spring-boot-starter</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
