@@ -1,5 +1,13 @@
 # JCommander Spring Boot Starter
 
+## Change Log
+
+* 0.1.1-SNAPSHOT
+  * Change licence from MIT to Apache for consistency with Spring Boot and JCommander.
+  * Bump to Spring Boot 2.2.7.RELEASE
+* 0.1.0
+  * Initial release compatible with Spring Boot 2.2.X, JCommander 1.X and Java 8+.
+
 ## Quick Start
 
 Add this dependency to your pom.xml:
