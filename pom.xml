@@ -18,8 +18,6 @@
   <properties>
     <scm.repository>jcommander-spring-boot-starter</scm.repository>
     <jcommander.version>1.78</jcommander.version>
-    <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
-    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
   </properties>
 
   <dependencies>
