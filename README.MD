@@ -2,7 +2,7 @@
 
 ## Change Log
 
-* 0.1.1-SNAPSHOT
+* 0.1.1
   * Change licence from MIT to Apache for consistency with Spring Boot and JCommander.
   * Bump to Spring Boot 2.2.7.RELEASE
 * 0.1.0
@@ -16,7 +16,7 @@ Add this dependency to your pom.xml:
 <dependency>
   <groupId>com.madden-abbott</groupId>
   <artifactId>jcommander-spring-boot-starter</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 

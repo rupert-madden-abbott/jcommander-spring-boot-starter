@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>jcommander-spring-boot-starter</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>0.1.1</version>
   <name>JCommander Spring Boot Starter</name>
   <description>Starter for command line parsing using JCommander</description>
 
