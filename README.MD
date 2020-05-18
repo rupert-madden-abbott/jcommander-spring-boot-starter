@@ -2,6 +2,8 @@
 
 ## Change Log
 
+* 0.2.0-SNAPSHOT
+  * Bump to Spring Boot 2.3.0.RELEASE
 * 0.1.1
   * Change licence from MIT to Apache for consistency with Spring Boot and JCommander.
   * Bump to Spring Boot 2.2.7.RELEASE
