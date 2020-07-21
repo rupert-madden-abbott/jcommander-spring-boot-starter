@@ -1,18 +1,19 @@
 package com.maddenabbott.jcommander.spring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import com.beust.jcommander.JCommander;
 import com.maddenabbott.jcommander.controller.Command;
 import com.maddenabbott.jcommander.controller.JCommanderController;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnNotWebApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @ConditionalOnNotWebApplication
 @Configuration
+@EnableConfigurationProperties(JCommanderProperties.class)
 public class JCommanderAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean
@@ -23,10 +24,10 @@ public class JCommanderAutoConfiguration {
   @Bean
   @ConditionalOnMissingBean
   public JCommanderController jCommanderController(
-    final Optional<List<Command>> commands,
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") final List<Command> commands,
     final JCommander jCommander
   ) {
-    commands.orElseGet(ArrayList::new).forEach(jCommander::addCommand);
+    commands.forEach(jCommander::addCommand);
     return new JCommanderController(jCommander);
   }
 

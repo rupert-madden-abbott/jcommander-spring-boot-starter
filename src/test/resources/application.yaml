@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: "jcommander-starter-tests"
+
+---
+
+spring:
+  profiles: "!debug"
+  main:
+    banner-mode: off
+logging:
+  pattern:
+    console:
+  file:
+    name: ${java.io.tmpdir}/${spring.application.name}.log
+jcommander:
+  output-errors: true

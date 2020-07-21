@@ -1,2 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.maddenabbott.jcommander.spring.JCommanderAutoConfiguration
+
+org.springframework.boot.SpringBootExceptionReporter=\
+  com.maddenabbott.jcommander.spring.StandardErrorSpringBootExceptionReporter
