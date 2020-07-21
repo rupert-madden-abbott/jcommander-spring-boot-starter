@@ -20,7 +20,7 @@ public class StandardErrorSpringBootExceptionReporter implements SpringBootExcep
 
     @Override
     public boolean reportException(Throwable failure) {
-        if (!isQuiet()) {
+        if (!isOutputErrors()) {
             return false;
         }
 
@@ -37,7 +37,7 @@ public class StandardErrorSpringBootExceptionReporter implements SpringBootExcep
                 && "Failed to execute CommandLineRunner".equals(failure.getMessage());
     }
 
-    private boolean isQuiet() {
-        return context.getBean(JCommanderProperties.class).isOutputErrors();
+    private boolean isOutputErrors() {
+        return context.getEnvironment().getProperty("jcommander.output-errors", Boolean.class, false);
     }
 }
